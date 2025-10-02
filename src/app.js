@@ -7,5 +7,28 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  console.log("Hello Rigo from the console!");
+
+let pronoun = ['the', 'our', 'my'];
+let adj = ['great', 'big', 'cool'];
+let noun = ['jogger', 'racoon', 'lastofus'];
+let extensions = ['.com', '.net', '.us', '.io'];
+
+for (let p of pronoun) {
+  for (let a of adj) {
+    for (let n of noun) {
+      for (let ext of extensions) {
+
+        // Normal domain
+        console.log(p + a + n + ext);
+
+        // noun ends with same letters as extension
+        let extWithoutDot = ext.slice(1); // remove the dot
+        if (n.endsWith(extWithoutDot)) {
+          let hacked = p + a + n.slice(0, n.length - extWithoutDot.length) + ext;
+          console.log(hacked);
+        }
+      }
+    }
+  }
+}
 };
